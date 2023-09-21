@@ -3,6 +3,12 @@ import { CiLocationOn, CiDollar } from "react-icons/ci";
 import { FiPhone, } from "react-icons/fi";
 import { AiTwotoneMedicineBox, } from "react-icons/ai";
 import { MdEmail, } from "react-icons/md";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../Utility/Utility";
+
+
 const JobDetails = () => {
     const jobs = useLoaderData();
     const { id } = useParams();
@@ -10,6 +16,12 @@ const JobDetails = () => {
     const job = jobs.find(job => job.id === IdInt);
     const { job_description, job_responsibility, experiences, educational_requirements, salary, job_title, contact_information } = job;
     console.log(job);
+
+    const handleApplyJob = () => {
+        saveJobApplication(IdInt)
+        toast('Applied Successfully!')
+    }
+
     return (
         <div>
             <h2 className="text-5xl font-semibold text-center my-12">Job Details</h2>
@@ -32,8 +44,9 @@ const JobDetails = () => {
                         <h2 className="font-bold flex gap-1 items-center"><MdEmail className="text-xl text-violet-500" />Email: <span className="font-semibold">{contact_information.email}</span></h2>
                         <h2 className="font-bold flex gap-1 items-center"><CiLocationOn className="text-5xl text-violet-500" />Address: <span className="font-semibold">{contact_information.address}</span></h2>
                     </div>
-                      <button className="btn w-full bg-gradient-to-r from-violet-500 to-fuchsia-500 text-xl mt-5 capitalize text-white">Apply Now</button>
+                      <button onClick={handleApplyJob} className="btn w-full bg-gradient-to-r from-violet-500 to-fuchsia-500 text-xl mt-5 capitalize text-white">Apply Now</button>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );

@@ -13,7 +13,7 @@ const FeaturedJobs = () => {
         .then(res => res.json()) 
         .then(data =>setJobs(data))
     },[]) ;
-    console.log(jobs);
+    // console.log(jobs);
   return (
     <div>
       <div className="text-center space-y-3">

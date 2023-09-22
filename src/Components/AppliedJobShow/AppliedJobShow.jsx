@@ -3,7 +3,7 @@ import { CiLocationOn, CiDollar, } from "react-icons/ci";
 import PropTypes from 'prop-types' ;
 
 const AppliedJobShow = ({jobDetails}) => {
-    const{logo,company_name,job_type, job_title, location, salary,remote_or_onsite} = jobDetails ;
+    const{logo,company_name,job_type,job_title, location, salary,remote_or_onsite} = jobDetails ;
 
     return (
         <div className="flex justify-between items-center border my-5 p-5">
@@ -24,7 +24,7 @@ const AppliedJobShow = ({jobDetails}) => {
                     </div>
                 </div>
             </div>
-            <button className="btn bg-gradient-to-r from-violet-500 to-fuchsia-500 text-xl mt-5 capitalize text-white">View Details</button>
+           <button className="btn bg-gradient-to-r from-violet-500 to-fuchsia-500 text-xl mt-5 capitalize text-white">View Details</button>
         </div>
     );
 };

@@ -19,11 +19,11 @@ const ApliedJob = () => {
             setDisplayJobs(saveAppliedJobs) ;
         }
         else if(filter === 'remote'){
-            const remoteJobs = saveAppliedJobs.filter(job => job.remote_or_onsite == "Remote") ;
+            const remoteJobs = saveAppliedJobs.filter((job) => job.remote_or_onsite == "Remote") ;
             setDisplayJobs(remoteJobs) ;
         }
         else if(filter === 'onsite'){
-            const OnsiteJobs = saveAppliedJobs.filter(job => job.remote_or_onsite === "Onsite") ;
+            const OnsiteJobs = saveAppliedJobs.filter((job) => job.remote_or_onsite === "Onsite") ;
             setDisplayJobs(OnsiteJobs) ;
         }
     }
@@ -31,8 +31,8 @@ const ApliedJob = () => {
     useEffect(() => {
         const storedJobIis = getStoredJobApplication();
         if (jobs.length) {
-            const JobsApplied = jobs.filter(job => storedJobIis.includes(job.id));
-            console.log(jobs, storedJobIis, JobsApplied);
+            const jobsApplied = jobs.filter((job) => storedJobIis.includes(job.id));
+            console.log(jobs, storedJobIis, jobsApplied);
 
             // different away to solved 
             // const jobsApplied = [] ; 
@@ -44,10 +44,10 @@ const ApliedJob = () => {
             //     console.log(job);
             // }
 
-            setSaveAppliedJobs(JobsApplied) ;
-            setDisplayJobs(JobsApplied) ;
+            setSaveAppliedJobs(jobsApplied) ;
+            setDisplayJobs(jobsApplied) ;
         }
-    }, [])
+    }, [jobs])
 
 
     return (
@@ -55,7 +55,7 @@ const ApliedJob = () => {
             <h1 className="text-3xl">Job I Aplied! {saveAppliedJobs.length}</h1>
             <div className="flex flex-col justify-end items-end w-full px-7">
                 <details className="dropdown mb-32">
-                    <summary className="m-1 btn">Sort by</summary>
+                    <summary className="m-1 btn capitalize text-base">Filter by</summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-24 relative right-2">
                         <li onClick={()=> handleJobFilter('all') }><a>All</a></li>
                         <li onClick={()=> handleJobFilter('remote') }><a>Remote</a></li>

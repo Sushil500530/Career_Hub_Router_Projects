@@ -1,9 +1,9 @@
-import { CiLocationOn,CiDollar } from "react-icons/ci";
+import { CiLocationOn, CiDollar } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types' ;
+import PropTypes from 'prop-types';
 
 const FeaturedJob = ({ job }) => {
-    const { company_name, logo, job_title, remote_or_onsite, location, salary, job_type,id} = job;
+    const { company_name, logo, job_title, remote_or_onsite, location, salary, job_type, id } = job;
 
     // console.log(job);
     return (
@@ -21,10 +21,9 @@ const FeaturedJob = ({ job }) => {
                     <p className="flex"><CiDollar className="text-2xl font-bold" />{salary}</p>
                 </div>
                 <div className="card-actions">
-                   <Link to={`/jobs/${id}`}>
-                      <button className="btn bg-gradient-to-r from-violet-500 to-fuchsia-500 text-xl capitalize text-white">View Details</button>
-                   </Link>
-                    
+                    <Link to={`/jobs/${id}`}>
+                        <button className="btn bg-gradient-to-r from-violet-500 to-fuchsia-500 text-xl capitalize text-white">View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>
